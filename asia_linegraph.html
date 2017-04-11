@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
+    </head>
+    <body>
+        
+    <h2>Child Mortality rate for Asian regions from 1990.5 to 2015.5<h2><div id="linechart"><svg style="width:1000px;height:450px;"></svg></div>
+
+
+    <script>
+
+
+
+            data_linechart=[{"values": [{"y": 43.98, "x": 1990.5}, {"y": 43.6133333333, "x": 1995.5}, {"y": 34.3733333333, "x": 2000.5}, {"y": 22.0533333333, "x": 2005.5}, {"y": 17.04, "x": 2010.5}, {"y": 13.06, "x": 2015.5}], "key": "Eastern Asia", "yAxis": "1"}, {"values": [{"y": 122.6625, "x": 1990.5}, {"y": 100.758333333, "x": 1995.5}, {"y": 81.3166666667, "x": 2000.5}, {"y": 64.875, "x": 2005.5}, {"y": 52.525, "x": 2010.5}, {"y": 43.7875, "x": 2015.5}], "key": "Southern Asia", "yAxis": "1"}, {"values": [{"y": 67.1633333333, "x": 1990.5}, {"y": 56.92, "x": 1995.5}, {"y": 47.38, "x": 2000.5}, {"y": 36.43, "x": 2005.5}, {"y": 29.3, "x": 2010.5}, {"y": 24.73, "x": 2015.5}], "key": "Southeast Asia", "yAxis": "1"}, {"values": [{"y": 46.8285714286, "x": 1990.5}, {"y": 39.2357142857, "x": 1995.5}, {"y": 31.7357142857, "x": 2000.5}, {"y": 24.6047619048, "x": 2005.5}, {"y": 19.7261904762, "x": 2010.5}, {"y": 16.4928571429, "x": 2015.5}], "key": "Western Asia", "yAxis": "1"}, {"values": [{"y": 68.0166666667, "x": 1990.5}, {"y": 65.0833333333, "x": 1995.5}, {"y": 55.0166666667, "x": 2000.5}, {"y": 43.2611111111, "x": 2005.5}, {"y": 34.9944444444, "x": 2010.5}, {"y": 29.7833333333, "x": 2015.5}], "key": "Caucacus and Central Asia", "yAxis": "1"}, {"values": [{"y": 27.4666666667, "x": 1990.5}, {"y": 33.7666666667, "x": 1995.5}, {"y": 30.9666666667, "x": 2000.5}, {"y": 18.8, "x": 2005.5}, {"y": 16.6, "x": 2010.5}, {"y": 14.0333333333, "x": 2015.5}], "key": "Eastern Asia excluding China", "yAxis": "1"}, {"values": [{"y": 125.633333333, "x": 1990.5}, {"y": 108.866666667, "x": 1995.5}, {"y": 92.7333333333, "x": 2000.5}, {"y": 78.6, "x": 2005.5}, {"y": 68.46666666670001, "x": 2010.5}, {"y": 59.4666666667, "x": 2015.5}], "key": "Southern Asia excluding India", "yAxis": "1"}];
+
+
+        nv.addGraph(function() {
+        var chart = nv.models.lineChart();
+
+        chart.margin({top: 30, right: 60, bottom: 20, left: 60});
+
+        var datum = data_linechart;
+
+
+
+                chart.yAxis
+                .tickFormat(d3.format(',.02f'));
+
+
+
+          chart.showLegend(true);
+
+
+    
+
+        
+
+
+
+            d3.select('#linechart svg')
+            .datum(datum)
+            .transition().duration(500)
+            .attr('width', 1000)
+            .attr('height', 450)
+            .call(chart);
+
+
+        });
+
+
+
+    </script>
+
+    </body>
+</html>

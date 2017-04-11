@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
+    </head>
+    <body>
+        
+    <h2>Estimate child deaths in Asian regions from 1990.5 to 2015.5 (in thousands)<div id="multibarchart"><svg style="width:1100px;height:400px;"></svg></div>
+
+
+    <script>
+
+
+
+        data_multibarchart=[{"values": [{"y": 335.631, "x": 1990.5}, {"y": 171.9846, "x": 1995.5}, {"y": 124.506066667, "x": 2000.5}, {"y": 85.64193333330002, "x": 2005.5}, {"y": 54.06853333330001, "x": 2010.5}, {"y": 39.765, "x": 2015.5}], "key": "East Asia", "yAxis": "1"}, {"values": [{"y": 586.254958333, "x": 1990.5}, {"y": 511.668583333, "x": 1995.5}, {"y": 440.567416667, "x": 2000.5}, {"y": 361.236208333, "x": 2005.5}, {"y": 297.240416667, "x": 2010.5}, {"y": 235.7465, "x": 2015.5}], "key": "South Asia", "yAxis": "1"}, {"values": [{"y": 82.9177, "x": 1990.5}, {"y": 67.6602, "x": 1995.5}, {"y": 52.3544, "x": 2000.5}, {"y": 44.2828, "x": 2005.5}, {"y": 35.931, "x": 2010.5}, {"y": 32.5352666667, "x": 2015.5}], "key": "Southeast Asia", "yAxis": "1"}, {"values": [{"y": 20.7908095238, "x": 1990.5}, {"y": 17.673547619, "x": 1995.5}, {"y": 14.3219761905, "x": 2000.5}, {"y": 11.4879285714, "x": 2005.5}, {"y": 10.1641428571, "x": 2010.5}, {"y": 8.95707142857, "x": 2015.5}], "key": "Western Asia", "yAxis": "1"}, {"values": [{"y": 18.8503888889, "x": 1990.5}, {"y": 15.0302222222, "x": 1995.5}, {"y": 10.8464444444, "x": 2000.5}, {"y": 9.57305555556, "x": 2005.5}, {"y": 9.31733333333, "x": 2010.5}, {"y": 8.77094444444, "x": 2015.5}], "key": "Caucacus and Central Asia", "yAxis": "1"}];
+
+    nv.addGraph(function() {
+        var chart = nv.models.multiBarChart();
+
+        chart.margin({top: 30, right: 60, bottom: 20, left: 60});
+
+        var datum = data_multibarchart;
+
+
+
+
+
+            chart.yAxis
+                .tickFormat(d3.format(',.2f'));
+
+
+      chart.showLegend(true);
+
+
+
+        
+
+
+        d3.select('#multibarchart svg')
+            .datum(datum)
+            .transition().duration(500)
+            .attr('width', 1100)
+            .attr('height', 400)
+            .call(chart);
+
+
+    });
+
+
+
+
+    </script>
+
+    </body>
+</html>

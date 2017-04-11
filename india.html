@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
+    </head>
+    <body>
+        
+    <h2>Child Mortality rate for India from 1990.5 to 2015.5<h2><div id="multibarchart"><svg style="width:1300px;height:400px;"></svg></div>
+
+
+    <script>
+
+
+
+        data_multibarchart=[{"values": [{"y": 130.1, "x": "1990.5"}, {"y": 112.7, "x": "1995.5"}, {"y": 94.7, "x": "2000.5"}, {"y": 77.9, "x": "2005.5"}, {"y": 63.4, "x": "2010.5"}, {"y": 53.3, "x": "2015.5"}], "key": "Upper", "yAxis": "1"}, {"values": [{"y": 125.8, "x": "1990.5"}, {"y": 108.7, "x": "1995.5"}, {"y": 91.2, "x": "2000.5"}, {"y": 74.6, "x": "2005.5"}, {"y": 59.9, "x": "2010.5"}, {"y": 47.7, "x": "2015.5"}], "key": "Median", "yAxis": "1"}, {"values": [{"y": 121.6, "x": "1990.5"}, {"y": 105, "x": "1995.5"}, {"y": 88, "x": "2000.5"}, {"y": 71.6, "x": "2005.5"}, {"y": 56.6, "x": "2010.5"}, {"y": 42.4, "x": "2015.5"}], "key": "Lower", "yAxis": "1"}];
+
+    nv.addGraph(function() {
+        var chart = nv.models.multiBarChart();
+
+        chart.margin({top: 30, right: 60, bottom: 20, left: 60});
+
+        var datum = data_multibarchart;
+
+
+
+
+
+            chart.yAxis
+                .tickFormat(d3.format(',.2f'));
+
+
+      chart.showLegend(true);
+
+
+
+        
+
+
+        d3.select('#multibarchart svg')
+            .datum(datum)
+            .transition().duration(500)
+            .attr('width', 1300)
+            .attr('height', 400)
+            .call(chart);
+
+
+    });
+
+
+
+
+    </script>
+
+    </body>
+</html>

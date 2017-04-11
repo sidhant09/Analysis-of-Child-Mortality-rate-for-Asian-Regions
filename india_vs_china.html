@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
+    </head>
+    <body>
+        
+    <h2>Child Mortality rate for China and India from 1990.5 to 2015.5<h2><div id="linechart"><svg style="width:1000px;height:450px;"></svg></div>
+
+
+    <script>
+
+
+
+            data_linechart=[{"values": [{"y": 125.833333333, "x": 1990.5}, {"y": 108.8, "x": 1995.5}, {"y": 91.3, "x": 2000.5}, {"y": 74.7, "x": 2005.5}, {"y": 59.9666666667, "x": 2010.5}, {"y": 47.8, "x": 2015.5}], "key": "India", "yAxis": "1"}, {"values": [{"y": 54.0666666667, "x": 1990.5}, {"y": 47.5666666667, "x": 1995.5}, {"y": 37.0, "x": 2000.5}, {"y": 24.0, "x": 2005.5}, {"y": 15.7, "x": 2010.5}, {"y": 10.8, "x": 2015.5}], "key": "China", "yAxis": "1"}];
+
+
+        nv.addGraph(function() {
+        var chart = nv.models.lineChart();
+
+        chart.margin({top: 30, right: 60, bottom: 20, left: 60});
+
+        var datum = data_linechart;
+
+
+
+                chart.yAxis
+                .tickFormat(d3.format(',.02f'));
+
+
+
+          chart.showLegend(true);
+
+
+    
+
+        
+
+
+
+            d3.select('#linechart svg')
+            .datum(datum)
+            .transition().duration(500)
+            .attr('width', 1000)
+            .attr('height', 450)
+            .call(chart);
+
+
+        });
+
+
+
+    </script>
+
+    </body>
+</html>

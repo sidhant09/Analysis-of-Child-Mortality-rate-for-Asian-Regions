@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
+    </head>
+    <body>
+        
+    <h2>Child Mortality rate for China from 1990.5 to 2015.5<h2><div id="multibarchart"><svg style="width:1250px;height:400px;"></svg></div>
+
+
+    <script>
+
+
+
+        data_multibarchart=[{"values": [{"y": 58.8, "x": "1990.5"}, {"y": 50.4, "x": "1995.5"}, {"y": 39.2, "x": "2000.5"}, {"y": 25.5, "x": "2005.5"}, {"y": 16.7, "x": "2010.5"}, {"y": 12.7, "x": "2015.5"}], "key": "Upper", "yAxis": "1"}, {"values": [{"y": 53.8, "x": "1990.5"}, {"y": 47.5, "x": "1995.5"}, {"y": 36.9, "x": "2000.5"}, {"y": 24, "x": "2005.5"}, {"y": 15.7, "x": "2010.5"}, {"y": 10.7, "x": "2015.5"}], "key": "Median", "yAxis": "1"}, {"values": [{"y": 49.6, "x": "1990.5"}, {"y": 44.8, "x": "1995.5"}, {"y": 34.9, "x": "2000.5"}, {"y": 22.5, "x": "2005.5"}, {"y": 14.7, "x": "2010.5"}, {"y": 9, "x": "2015.5"}], "key": "Lower", "yAxis": "1"}];
+
+    nv.addGraph(function() {
+        var chart = nv.models.multiBarChart();
+
+        chart.margin({top: 30, right: 60, bottom: 20, left: 60});
+
+        var datum = data_multibarchart;
+
+
+
+
+
+            chart.yAxis
+                .tickFormat(d3.format(',.2f'));
+
+
+      chart.showLegend(true);
+
+
+
+        
+
+
+        d3.select('#multibarchart svg')
+            .datum(datum)
+            .transition().duration(500)
+            .attr('width', 1250)
+            .attr('height', 400)
+            .call(chart);
+
+
+    });
+
+
+
+
+    </script>
+
+    </body>
+</html>
